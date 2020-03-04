@@ -1,4 +1,4 @@
-## Movie Search
+# Movie Search
 
 This project has the purpose of test my front-end skills with vanilla js, design patterns and code quality.
 
