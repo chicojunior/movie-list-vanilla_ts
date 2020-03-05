@@ -1,0 +1,40 @@
+<mxfile host="www.draw.io" modified="2020-03-05T14:43:48.466Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36" etag="Hbkat5Fw1zjk5yBZRSZ9" version="12.8.0" type="github">
+  <diagram id="DOCvdjkaxSvwiygeSSlw" name="Page-1">
+    <mxGraphModel dx="1408" dy="748" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-1" value="User" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="230" width="50" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-4" value="Search Movie" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="159" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-6" value="See Detail of a Movie" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="240" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-8" value="Add a movie to favorites list" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="330" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-12" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.614;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="-M8USE7G71P5Gt9VBdIP-1" target="-M8USE7G71P5Gt9VBdIP-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="250" as="sourcePoint" />
+            <mxPoint x="190" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-13" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="-M8USE7G71P5Gt9VBdIP-1" target="-M8USE7G71P5Gt9VBdIP-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="275" as="sourcePoint" />
+            <mxPoint x="240" y="274.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-M8USE7G71P5Gt9VBdIP-14" value="" style="endArrow=classic;html=1;entryX=-0.021;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="-M8USE7G71P5Gt9VBdIP-1" target="-M8USE7G71P5Gt9VBdIP-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="160" y="300" as="sourcePoint" />
+            <mxPoint x="240" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
