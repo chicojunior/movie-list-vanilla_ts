@@ -1,17 +1,13 @@
-import { MovieController } from "./controller/movie.controller";
-import { MovieView } from "./view/movie.view";
-import { MovieService } from "./service/movie.service";
+import { MovieController } from './controller/movie.controller';
+import { MovieService } from './service/movie.service';
 
-const app = () => {
-  const controller = new MovieController(new MovieView(), new MovieService());
-  const element = document.createElement('div');
-  const headerText = document.createElement('h1');
+const _app = document.getElementById('app');
+const headerText = document.createElement('h1');
+const movieList = document.createElement('div');
+const movieListController = new MovieController(new MovieService());
+movieListController.getMovies();
+movieList.innerHTML = movieListController.renderTemplate();
+headerText.textContent = 'BM - Movie Search';
 
-  element.id = 'app';
-  headerText.innerText = 'BM - Movie Search';
-  element.appendChild(headerText);
-
-  return element;
-}
-
-document.body.appendChild(app());
+_app.appendChild(headerText);
+_app.appendChild(movieList);
