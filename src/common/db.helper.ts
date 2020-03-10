@@ -1,61 +1,29 @@
-import { DB_OPTION } from './constants';
+
 import { Movie } from '../modules/movie/movie.model';
+import { LocalStorageStrategy } from './localstorage.strategy';
+import { IndexedDbStrategy } from './indexeddb.strategy';
 
 export class DBHelper {
-  private dbOption = DB_OPTION.LOCAL_STORAGE;
-  private dbName = 'moviedb';
-  private storeName = 'favorites';
-  private db: any;
 
-	private _commit(data: Movie) {
-		switch (this.dbOption) {
-			case 'LOCAL_STORAGE':
-				this.commitOnLocalStorage(data);
-				break;
-			case 'INDEXED_DB':
-				this.commitOnIndexedDB(data);
-				break;
-			default:
-				throw Error('NO DB OPTION SET');
-		}
-	}
+  public strategy: any;
+  public localstorageStrategy = new LocalStorageStrategy();
+  public indexeddbStrategy = new IndexedDbStrategy();
 
-	private commitOnLocalStorage(data: Movie) {
-		localStorage.setItem('favorites', JSON.stringify(data));
-	}
-
-	private commitOnIndexedDB(data: Movie) {
-
-    if (!('indexedDB' in window)) {
-      console.warn('IndexedDB not supported')
-      this.commitOnLocalStorage(data);
-      return
-    }
-
-    async () => {
-      this.createDB(this.dbName, this.storeName);
-
-      const tx = this.db.transaction(this.storeName, 'readwrite')
-      const store = await tx.objectStore(this.storeName)
-
-      const val = data
-      const key = 'Hello again'
-      const value = await store.put(val, key)
-      await tx.done
-    }
+  constructor() {
+    this.setDBStrategy(this.localstorageStrategy);
   }
 
-  private createDB(dbName: string, storeName: string) {
-    async () => {
-      this.db = await openDB(dbName, {
-        upgrade(db: any, oldVersion, newVersion, transaction) {
-          const store = db.createObjectStore(storeName)
-        }
-      })
-    }
+	private _commit(data: Movie) {
+    this.strategy._commit(data);
+	}
+
+  private setDBStrategy(strategy: any) {
+    this.strategy = strategy;
   }
 
 	public save(data: Movie) {
 		this._commit(data);
-	}
+  }
+
+
 }

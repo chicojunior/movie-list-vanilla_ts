@@ -4,9 +4,7 @@ export class LocalStorageStrategy {
 
   _handler: Function;
 
-  constructor(handler: Function) {
-    this._handler = handler
-  }
+  constructor() {}
 
   doAction() {
     this._handler();
