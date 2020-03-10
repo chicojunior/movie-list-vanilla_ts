@@ -1,4 +1,4 @@
-export const DB_OPTION = {
-  LOCAL_STORAGE: 1,
-  INDEX_DB: 2
+export enum DB_OPTION {
+  LOCAL_STORAGE = 'LOCAL_STORAGE',
+  INDEXED_DB = 'INDEXED_DB'
 }
