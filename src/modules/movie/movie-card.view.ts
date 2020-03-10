@@ -1,4 +1,4 @@
-import { MovieModel } from '../model/movie.model';
+import { MovieModel } from './movie.model';
 
 export class MovieCard {
 	template: string;
@@ -7,7 +7,7 @@ export class MovieCard {
 
 	public render(movie: MovieModel): string {
     return `
-      <div>
+      <div class="card">
         <p>${ movie.name }</p>
         <p>${ movie.description }</p>
       </div>

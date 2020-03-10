@@ -1,4 +1,4 @@
-import { MovieController } from "../controller/movie.controller";
+import { MovieController } from "./movie.controller";
 
 export class MovieView {
 

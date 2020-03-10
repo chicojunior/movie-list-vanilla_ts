@@ -1,5 +1,5 @@
-import { DBHelper } from "../common/db.helper";
-import { MovieModel } from "../model/movie.model";
+import { DBHelper } from "../../common/db.helper";
+import { MovieModel } from "./movie.model";
 
 export class MovieService {
 

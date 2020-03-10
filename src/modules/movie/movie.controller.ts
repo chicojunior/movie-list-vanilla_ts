@@ -1,7 +1,7 @@
-import { MovieModel } from '../model/movie.model';
-import { MovieView } from '../view/movie.view';
-import { MovieService } from '../service/movie.service';
-import { MovieCard } from '../view/movie-card.view';
+import { MovieModel } from './movie.model';
+import { MovieView } from './movie.view';
+import { MovieService } from './movie.service';
+import { MovieCard } from './movie-card.view';
 
 export class MovieController {
 
