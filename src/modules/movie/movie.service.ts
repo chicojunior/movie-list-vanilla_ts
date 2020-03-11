@@ -1,5 +1,7 @@
 import { DBHelper } from "../../common/db.helper";
 import { MovieModel } from "./movie.model";
+import { LocalStorageStrategy } from "../../common/localstorage.strategy";
+import { IndexedDbStrategy } from "../../common/indexeddb.strategy";
 
 export class MovieService {
 
@@ -12,6 +14,7 @@ export class MovieService {
     { id: 1, name: 'Tron', description: 'Tron plot' }
   ]
 
+  private db = new DBHelper(new IndexedDbStrategy());
 
   constructor() {
 
@@ -29,7 +32,7 @@ export class MovieService {
 
   }
 
-  addToFavorites(data: MovieModel[]) {
-    // this.db.save(data);
+  addToFavorites(data: MovieModel) {
+    this.db.save(data);
   }
 }

@@ -1,4 +1,4 @@
-export class StrategyManager {
+/* export class StrategyManager {
 
   public _strategy: any;
 
@@ -17,4 +17,9 @@ export class StrategyManager {
   doAction() {
     this._strategy.doAction();
   }
+} */
+
+export interface IStrategyManager {
+  doAction: () => void;
+  commit: <T>(data: T) => void;
 }

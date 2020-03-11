@@ -1,6 +1,7 @@
 import { Movie } from "../modules/movie/movie.model";
+import { IStrategyManager } from "./strategy-manager";
 
-export class LocalStorageStrategy {
+export class LocalStorageStrategy implements IStrategyManager {
 
   _handler: Function;
 
@@ -10,7 +11,7 @@ export class LocalStorageStrategy {
     this._handler();
   }
 
-  _commit(data: Movie) {
+  commit<Movie>(data: Movie) {
     localStorage.setItem('favorites', JSON.stringify(data));
   }
 }
