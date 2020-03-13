@@ -1,6 +1,4 @@
-export enum DB_OPTION {
+export enum DBStrategyTypes {
   LOCAL_STORAGE = 'LOCAL_STORAGE',
   INDEXED_DB = 'INDEXED_DB'
 }
-
-export const API_KEY = '6124680a';

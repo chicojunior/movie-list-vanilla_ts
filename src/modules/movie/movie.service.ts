@@ -1,36 +1,24 @@
-import { DBHelper } from "../../common/db.helper";
-import { MovieModel } from "./movie.model";
-import { LocalStorageStrategy } from "../../common/localstorage.strategy";
-import { IndexedDbStrategy } from "../../common/indexeddb.strategy";
+import DBHelper from '../../common/db.helper';
+import MovieModel from './movie.model';
 
-export class MovieService {
-
-  /**
-   * MOCK
-   */
-
-  public movies: any  = [
+/*  */
+export default class MovieService {
+  public movies: MovieModel[] = [
     { id: 1, name: 'The Matrix', description: 'The matrix plot' },
-    { id: 1, name: 'Tron', description: 'Tron plot' }
+    { id: 1, name: 'Tron', description: 'Tron plot' },
   ]
 
-  private db = new DBHelper(new IndexedDbStrategy());
+  private db = DBHelper.getInstance();
 
-  constructor() {
-
-  }
+  // constructor() {}
 
   getMovies(): MovieModel[] {
     return this.movies;
   }
 
-  searchMovie(query: string) {
+  // searchMovie(query: string) {}
 
-  }
-
-  getFavorites() {
-
-  }
+  // getFavorites() {}
 
   addToFavorites(data: MovieModel) {
     this.db.save(data);

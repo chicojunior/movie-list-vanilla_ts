@@ -5,6 +5,7 @@ export class LocalStorageStrategy implements IStrategyManager {
 
   _handler: Function;
 
+
   constructor() {}
 
   doAction() {

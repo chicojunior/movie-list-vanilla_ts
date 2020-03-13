@@ -1,22 +1,38 @@
-import { MovieController } from "./movie.controller";
+import MovieController from './movie.controller';
+import MovieModel from './movie.model';
 
-export class MovieView {
+export default class MovieView {
+  public movies: HTMLElement[] = [];
 
-  public template: string = '';
-  public movies: string[] = []
+  public template: HTMLElement = document.createElement('div');
 
-  constructor(private controller: MovieController) {}
+  public button: HTMLElement = document.createElement('button');
 
-  public renderTemplate(): string {
+  public movie = { id: 1, name: 'Tron', description: 'Tron plot' };
+
+  public controller: MovieController;
+
+  constructor(private movieController?: MovieController) {
+    this.controller = movieController;
+    this.getMovies();
+  }
+
+  public renderTemplate(): HTMLElement {
+    this.template.className = 'movie-list';
+    this.button.textContent = 'Add Mock Movie';
+    this.button.addEventListener('click', () => this.addToFavorites(this.movie));
+    this.template.appendChild(this.button);
+
     return this.template;
   }
 
-  public addToFavorite(handler: Function) {}
-
-  public getMovies(handler: Function) {
-    this.movies = this.controller.getMovies();
-    this.template = this.movies.join('');
+  public addToFavorites(movie: MovieModel) {
+    this.controller.addToFavorites(movie);
   }
 
-
+  public getMovies() {
+    debugger
+    this.movies = this.controller.getMovies();
+    this.movies.forEach((movieCard) => this.template.appendChild(movieCard));
+  }
 }

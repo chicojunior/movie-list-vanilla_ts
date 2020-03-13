@@ -1,9 +1,8 @@
-export class HttpUtils {
-  constructor() {}
+import { API_KEY } from "./constants";
 
-  public get(url: string, params: any) {
 
-  }
+export default class HttpUtils {
+  public get(url: string, params: any) {}
 
   public post<T>(url: string, payload: T) {}
 }

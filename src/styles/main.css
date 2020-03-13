@@ -7,6 +7,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.movie-list {
+  margin: 10px;
+}
+
 .card {
+  margin-bottom: 10px;
   border: 1px solid #000000;
 }

@@ -1,33 +1,37 @@
-import { MovieModel } from './movie.model';
-import { MovieView } from './movie.view';
-import { MovieService } from './movie.service';
-import { MovieCard } from './movie-card.view';
+import MovieModel from './movie.model';
+import MovieView from './movie.view';
+import MovieService from './movie.service';
+import MovieCard from './movie-card.view';
 
-export class MovieController {
+export default class MovieController {
+  movies: MovieModel[] = [];
 
-  private movieView: MovieView = new MovieView(this);
-  private movies: MovieModel[] = [];
+  movieService: MovieService;
 
-  constructor(private service: MovieService) {
-    this.movieView.addToFavorite(this.addToFavorites);
-    this.movieView.getMovies(this.getMovies);
+  movieView: MovieView;
+
+  movie: MovieModel = { id: 1, name: 'The Matrix', description: 'The matrix plot' };
+
+  constructor(movieView: MovieView, movieService: MovieService) {
+    this.movieService = movieService;
+    this.movieView = movieView;
+    this.movieView.controller = this;
   }
 
-  addToFavorites(movies: MovieModel[]) {
-    this.service.addToFavorites(movies)
+  addToFavorites(movie: MovieModel) {
+    this.movieService.addToFavorites(movie);
   }
 
   getMovies() {
-    this.movies = this.service.getMovies();
-    let cards: string[] = [];
-    this.movies.forEach(movie => {
-      let card = new MovieCard()
+    const cards: HTMLElement[] = [];
+    this.movies.forEach((movie) => {
+      const card = new MovieCard()
       cards.push(card.render(movie));
     });
     return cards;
   }
 
-  renderTemplate(): string {
+  renderTemplate(): HTMLElement {
     return this.movieView.renderTemplate();
   }
 }

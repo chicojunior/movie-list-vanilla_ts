@@ -1,16 +1,18 @@
-import { MovieModel } from './movie.model';
+import MovieModel from './movie.model';
 
-export class MovieCard {
-	template: string;
+export default class MovieCard {
+  div: HTMLElement = document.createElement('div');
 
-	constructor() {}
+  movieName: HTMLElement = document.createElement('p');
 
-	public render(movie: MovieModel): string {
-    return `
-      <div class="card">
-        <p>${ movie.name }</p>
-        <p>${ movie.description }</p>
-      </div>
-    `;
-	}
+  movieDescription: HTMLElement = document.createElement('p');
+
+  public render(movie: MovieModel): HTMLElement {
+    this.div.className = 'card';
+    this.movieName.textContent = movie.name;
+    this.movieDescription.textContent = movie.description;
+    this.div.appendChild(this.movieName);
+    this.div.appendChild(this.movieDescription);
+    return this.div;
+  }
 }
