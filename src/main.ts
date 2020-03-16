@@ -4,7 +4,7 @@ import MovieController from './modules/movie/movie.controller';
 import MovieService from './modules/movie/movie.service';
 import MovieView from './modules/movie/movie.view';
 import DBHelper from './common/db.helper';
-import { DBStrategyTypes } from './common/db-strategy-types';
+import { DBStrategyTypes } from './common/constants';
 
 const app = document.getElementById('app');
 const headerText = document.createElement('h1');

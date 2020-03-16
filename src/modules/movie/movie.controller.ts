@@ -6,15 +6,21 @@ import MovieCard from './movie-card.view';
 export default class MovieController {
   movies: MovieModel[] = [];
 
-  movieService: MovieService;
-
   movieView: MovieView;
+
+  movieService: MovieService;
 
   movie: MovieModel = { id: 1, name: 'The Matrix', description: 'The matrix plot' };
 
   constructor(movieView: MovieView, movieService: MovieService) {
-    this.movieService = movieService;
     this.movieView = movieView;
+    this.movieService = movieService;
+
+    this.movieView.setController(this, this.setViewController);
+    this.movieView.getMovies(this.getMovies);
+  }
+
+  setViewController() {
     this.movieView.controller = this;
   }
 
@@ -23,9 +29,10 @@ export default class MovieController {
   }
 
   getMovies() {
+    this.movies = this.movieService.getMovies();
     const cards: HTMLElement[] = [];
     this.movies.forEach((movie) => {
-      const card = new MovieCard()
+      const card = new MovieCard();
       cards.push(card.render(movie));
     });
     return cards;
