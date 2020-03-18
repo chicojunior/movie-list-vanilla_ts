@@ -2,9 +2,7 @@ import MovieModel from './movie.model';
 
 export default class MovieCard {
   div: HTMLElement = document.createElement('div');
-
   movieName: HTMLElement = document.createElement('p');
-
   movieDescription: HTMLElement = document.createElement('p');
 
   public render(movie: MovieModel): HTMLElement {

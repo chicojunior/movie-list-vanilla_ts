@@ -3,28 +3,27 @@ import MovieModel from './movie.model';
 
 export default class MovieView {
   public movies: HTMLElement[] = [];
-
   public controller: MovieController;
-
   public template: HTMLElement = document.createElement('div');
-
   public button: HTMLElement = document.createElement('button');
-
+  public searchButton: HTMLElement = document.createElement('button');
   public movie = { id: 1, name: 'Tron', description: 'Tron plot' };
 
   public renderTemplate(): HTMLElement {
     this.template.className = 'movie-list';
-    this.button.textContent = 'Add Mock Movie';
-    this.button.addEventListener('click', () => this.addToFavorites(this.movie));
 
     this.loadMovieList();
+
+    this.button.textContent = 'Add Mock Movie';
+    this.button.addEventListener('click', () => this.addToFavorites(this.movie));
     this.template.appendChild(this.button);
 
-    return this.template;
-  }
+    this.searchButton.textContent = 'Search Movie';
+    this.searchButton.addEventListener('click', () => this.searchMovie());
+    this.template.appendChild(this.searchButton);
 
-  public setController(controller: MovieController, call?: Function) {
-    this.controller = controller;
+
+    return this.template;
   }
 
   public addToFavorites(movie: MovieModel) {
@@ -33,6 +32,10 @@ export default class MovieView {
 
   public getMovies(call?: Function) {
     this.movies = this.controller.getMovies();
+  }
+
+  public searchMovie(call?: Function) {
+    this.controller.searchMovie('matrix');
   }
 
   loadMovieList(): void {
