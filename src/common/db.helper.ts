@@ -1,15 +1,14 @@
-
-import { Movie } from '../modules/movie/movie.model';
 import { IStrategyManager } from './strategy-manager';
-import { DBStrategyTypes } from './db-strategy-types';
+import { DBStrategyTypes } from './constants';
+
 import { LocalStorageStrategy } from './localstorage.strategy';
 import { IndexedDbStrategy } from './indexeddb.strategy';
 
+import MovieModel from '../modules/movie/movie.model';
+
 export default class DBHelper {
   private static instance: DBHelper;
-
   private strategy: IStrategyManager;
-
   private strategyType: DBStrategyTypes;
 
   static getInstance(): DBHelper {
@@ -39,7 +38,7 @@ export default class DBHelper {
     this.setStrategy();
   }
 
-  public save(data: Movie) {
-    this.strategy.commit<Movie>(data);
+  public save(data: MovieModel) {
+    this.strategy.commit<MovieModel>(data);
   }
 }

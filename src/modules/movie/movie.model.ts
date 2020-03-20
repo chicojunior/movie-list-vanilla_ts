@@ -1,20 +1,24 @@
-/* eslint-disable linebreak-style */
+
 export interface Movie {
-  id: number;
-  name: string;
-  description: string;
+  title: string;
+  year: string;
+  imdbID: string;
+  type: string;
+  poster: string;
 }
 
 export default class MovieModel implements Movie {
-  public id: number;
+  public title: string;
+  public year: string;
+  public imdbID: string;
+  public type: string;
+  public poster: string;
 
-  public name: string;
-
-  public description: string;
-
-  constructor(id: number, name: string, description: string) {
-    this.id = id;
-    this.name = name;
-    this.description = description;
+  constructor(title: string, year: string, imdbID: string, type: string, poster: string) {
+    this.title = title;
+    this.year = year;
+    this.imdbID = imdbID;
+    this.type = type;
+    this.poster = poster;
   }
 }

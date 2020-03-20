@@ -19,7 +19,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'import/extensions': ['error', 'always', { 'js': 'always', 'json': 'never', 'ts': 'never' }],
+    'import/extensions': 'off',
     'no-unused-vars': 'off',
     'lines-between-class-members': 'off',
     'linebreak-style': 0,

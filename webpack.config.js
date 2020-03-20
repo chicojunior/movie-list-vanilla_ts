@@ -14,24 +14,24 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use:[
+        use: [
           'style-loader',
           'css-loader',
-          'sass-loader'
-        ]
-     },
-     {
-      test: /\.css$/,
-      use: [
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            publicPath: '/dist',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/dist',
+            },
           },
-        },
-        'css-loader',
-      ],
-    }
+          'css-loader',
+        ],
+      },
     ],
   },
   resolve: {
@@ -41,16 +41,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'BM - Movie Search',
       myPageHeader: 'Hello World',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
   },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
-  }
+  },
 };

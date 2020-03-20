@@ -7,10 +7,11 @@ export default class MovieCard {
 
   public render(movie: MovieModel): HTMLElement {
     this.div.className = 'card';
-    this.movieName.textContent = movie.name;
-    this.movieDescription.textContent = movie.description;
+    this.movieName.textContent = movie.title;
+    this.movieDescription.textContent = movie.year;
     this.div.appendChild(this.movieName);
     this.div.appendChild(this.movieDescription);
+
     return this.div;
   }
 }

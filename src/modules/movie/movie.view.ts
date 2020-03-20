@@ -7,7 +7,7 @@ export default class MovieView {
   public template: HTMLElement = document.createElement('div');
   public button: HTMLElement = document.createElement('button');
   public searchButton: HTMLElement = document.createElement('button');
-  public movie = { id: 1, name: 'Tron', description: 'Tron plot' };
+  // public movie = { id: 1, name: 'Tron', description: 'Tron plot' };
 
   public renderTemplate(): HTMLElement {
     this.template.className = 'movie-list';
@@ -15,7 +15,7 @@ export default class MovieView {
     this.loadMovieList();
 
     this.button.textContent = 'Add Mock Movie';
-    this.button.addEventListener('click', () => this.addToFavorites(this.movie));
+    this.button.addEventListener('click', () => this.addToFavorites({} as MovieModel));
     this.template.appendChild(this.button);
 
     this.searchButton.textContent = 'Search Movie';
@@ -36,6 +36,10 @@ export default class MovieView {
 
   public searchMovie(call?: Function) {
     this.controller.searchMovie('matrix');
+  }
+
+  public updateMovieList(call?: Function) {
+    this.controller.updateMovieList();
   }
 
   loadMovieList(): void {
